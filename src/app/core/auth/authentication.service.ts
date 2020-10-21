@@ -15,6 +15,7 @@ export class AuthenticationService {
     // const login_url = 'http://kevinwei.ca/admin/login';
     // return this.http.post(login_url)
     // Retrieve JWT Token
+    // Store JWT token in local storage
   }
 
   logout(): void {

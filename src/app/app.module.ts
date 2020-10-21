@@ -8,7 +8,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material-modules';
 import { AuthenticationGuard } from './core/guard/auth-guard.services';
 import { AuthenticationService } from './core/auth/authentication.service';
@@ -24,7 +24,6 @@ import { AuthenticationService } from './core/auth/authentication.service';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule

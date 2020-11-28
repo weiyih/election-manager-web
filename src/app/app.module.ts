@@ -9,8 +9,8 @@ import { MainComponent } from './modules/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material-modules';
-import { AuthenticationGuard } from './core/guard/auth-guard.services';
-import { AuthenticationService } from './core/auth/authentication.service';
+import { AuthGuard } from './core/guard/auth-guard.services';
+import { AuthService } from './core/auth/authentication.service';
 import { LoginComponent } from './modules/login/login.component';
 
 
@@ -28,7 +28,7 @@ import { LoginComponent } from './modules/login/login.component';
     MainComponent,
     LoginComponent,
   ],
-  providers: [AuthenticationGuard, AuthenticationService],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

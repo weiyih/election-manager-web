@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AuthenticationService } from '@core/auth/authentication.service';
+import { AuthService } from '@core/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthService
   ) {
     // TODO - Navigate if authenticated
   }
@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
         // this.authService.login(username, password)
     this.loading = true;
     if (username === 'admin@example.com' && password === 'password') {
+      console.log('Logged in');
       this.router.navigate(['/']);
     }
   }

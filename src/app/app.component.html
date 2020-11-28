@@ -1,11 +1,17 @@
-<!-- nav -->
 
-<h1>{{title}}</h1>
-<nav class="container">
-    <!-- TODO ngIf user logged in -->
-    <app-login></app-login>
-    <!-- Side Navigation -->
 
-    <!-- Main Container -->
-    <router-outlet></router-outlet>
-</nav>
+<!-- Side Nav -->
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav> -->
+
+<!-- Main App Container -->
+<div>
+    <router-outlet>
+        
+    </router-outlet>
+</div>

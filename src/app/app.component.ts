@@ -5,17 +5,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent {
   // currentUser
-  title = 'Blockchain Election Manager';
+  // user: User;
 
-  constructor(
-    private router: Router,
-    private authService: AuthenticationService
-  ) {
+  constructor(private authService: AuthenticationService) {
     // this.authService.
   }
 }

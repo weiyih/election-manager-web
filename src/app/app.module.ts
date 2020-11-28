@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,11 +14,6 @@ import { AuthenticationService } from './core/auth/authentication.service';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    MainComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -27,6 +21,10 @@ import { AuthenticationService } from './core/auth/authentication.service';
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    MainComponent
   ],
   providers: [AuthenticationGuard, AuthenticationService],
   bootstrap: [AppComponent],

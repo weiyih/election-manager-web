@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material-modules';
 import { AuthenticationGuard } from './core/guard/auth-guard.services';
 import { AuthenticationService } from './core/auth/authentication.service';
+import { LoginComponent } from './modules/login/login.component';
 
 
 @NgModule({
@@ -20,11 +21,12 @@ import { AuthenticationService } from './core/auth/authentication.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent,
   ],
   providers: [AuthenticationGuard, AuthenticationService],
   bootstrap: [AppComponent],

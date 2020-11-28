@@ -1,17 +1,31 @@
+<ng-container>
+  <mat-sidenav-container class="app-container">
+    <mat-sidenav opened mode="side" class="side-nav">
+      <div mat-subheader>Administration</div>
+      <mat-divider></mat-divider>
+      <mat-nav-list class="side-nav">
+        <a mat-list-item [routerLink]="'/elections'">
+          <mat-icon>ballot</mat-icon> Election
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item [routerLink]="'/voters'">
+          <mat-icon>how_to_reg</mat-icon> Voters List
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item [routerLink]="'/results'">
+          <mat-icon>assignment</mat-icon> Results
+        </a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
 
+      <mat-action-list lass="side-nav-bottom">
+        <button mat-list-item><mat-icon>exist_to_app</mat-icon>Logout</button>
+      </mat-action-list>
+    </mat-sidenav>
 
-<!-- Side Nav -->
-<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-</nav> -->
-
-<!-- Main App Container -->
-<div>
-    <router-outlet>
-        
-    </router-outlet>
-</div>
+    <mat-sidenav-content class="main-app">
+      <h1>MAIN PAGE</h1>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

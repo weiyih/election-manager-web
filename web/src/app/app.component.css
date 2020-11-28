@@ -1,0 +1,23 @@
+.root-app {
+  height: 100%;
+  display: block;
+}
+
+.app-container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+.side-nav {
+  align-items: center;
+  justify-content: right;
+  width: 250px;
+}
+
+.side-nav-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 0px;
+}

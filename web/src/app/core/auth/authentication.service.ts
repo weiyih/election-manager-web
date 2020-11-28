@@ -32,13 +32,12 @@ export class AuthService {
     return this.http.post<Account>(loginUrl, body)
       .pipe(
         map( account => {
-          localStorage.setItem('token': 'JWT');
+          localStorage.setItem('token', 'JWT');
           this.authSubject.next(true);
           return account;
           }),
         catchError(this.handleError)
       );
-
   }
 
   // Logout - removes user from local storage and redirects to login

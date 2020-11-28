@@ -15,6 +15,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  }
+    ],
+    "paths": {
+      "@app/material-modules" : [ "src/app/material-modules.ts"],
+      "@core/auth/*": ["src/app/core/auth/*"],
+      // "@environment/*": [
+      //   "src/environments/*"
+      // ],
+    }
+  },
 }

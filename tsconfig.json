@@ -19,6 +19,8 @@
     "paths": {
       "@app/material-modules" : [ "src/app/material-modules.ts"],
       "@core/auth/*": ["src/app/core/auth/*"],
+      "@app/model/*" : ["src/app/shared/models/*"],
+      
       // "@environment/*": [
       //   "src/environments/*"
       // ],

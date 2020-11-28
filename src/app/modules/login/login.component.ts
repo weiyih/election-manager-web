@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AuthenticationService } from '../../core/auth/authentication.service';
+import { AuthenticationService } from '@core/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +11,10 @@ import { AuthenticationService } from '../../core/auth/authentication.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loginUrl: string;
   loginError = '';
   hidePassword = true;
+  loading = false;
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,43 +27,34 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.email],
-      password: ['', Validators.required],
+      username: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required],
     });
-
-    // this.loginUrl =
   }
 
-  //   getErrorMessage() {
-  //     this.loginForm.controls
-  //     if (this.loginForm.username.hasError('required')) {
-  //       return 'You must enter a value';
-  //     }
+  // Convenience getter to access form fields
+  // tslint:disable-next-line: typedef
+  get form() {
+    return this.loginForm.controls;
+  }
 
-  //     return this.email.hasError('email') ? 'Not a valid email' : '';
-  //   }
-  // }
-
-  // Login button submit
-  onSubmit(): void {
-    const form = this.loginForm.value;
-    const username = form.username;
-    const password = form.password;
-
-    // Validate required username/password
+  // Login
+  // tslint:disable-next-line: typedef
+  onSubmit() {
+    // Validate form
     if (this.loginForm.invalid) {
       return;
     }
-    this.authService.login(username, password)
-      .pipe(first())
-      .subscribe((data) => {
-        this.router.navigate(['main']);
-      });
-    // .subscribe(
-    //   () => {
-    // Navigate to the main page
-    //     this.router.navigate()
 
-    // });
+    const username = this.form.username.value;
+    const password = this.form.password.value;
+    this.submitted = true;
+
+    // TODO - Authentication
+        // this.authService.login(username, password)
+    this.loading = true;
+    if (username === 'admin@example.com' && password === 'password') {
+      this.router.navigate(['/']);
+    }
   }
 }

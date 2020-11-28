@@ -1,19 +1,20 @@
-import { Injectable, NgModule } from '@angular/core';
+import { Component, Injectable, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Route Components
-import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 import { AuthenticationGuard } from './core/guard/auth-guard.services';
 
+// Lazy loading route
+const loginModule = () => import('./modules/login/login.module').then(m => m.LoginModule);
+
 // @Injectable({ providedIn: 'root' })
 const routes: Routes = [
-  { path: '', component: AppComponent, canActivate: [AuthenticationGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent, canActivate: [AuthenticationGuard] },
+  { path: 'account', loadChildren: loginModule },
+
+  // Redirect to home
   { path: '**', redirectTo: '' },
-  // { path: '**', component: PageNotFoundComponent } //TODO - 404 Page
 ];
 
 @NgModule({

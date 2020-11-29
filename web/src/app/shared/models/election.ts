@@ -1,3 +1,5 @@
+import { Candidate } from '@app/model/candidate';
+
 export class Election {
     electionId: string;
     electionName: string;
@@ -8,4 +10,5 @@ export class Election {
     advEndDate: string;
     channelName: string;
     contractName: string;
-};
+    candidates: Candidate[];
+}

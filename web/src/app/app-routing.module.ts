@@ -9,10 +9,11 @@ import { LoginComponent } from './modules/login/login.component';
 const electionModule = () => import('./modules/election/election.module').then(x => x.ElectionModule);
 
 const routes: Routes = [
-  { path: '', redirectTo: 'elections', loadChildren: electionModule, canActivate: [AuthGuard] },
+  { path: 'elections', loadChildren: electionModule, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 
   // Redirect to home
+  { path: '', redirectTo: '/elections', pathMatch: 'full' },
   { path: '**', redirectTo: 'elections' },
 ];
 

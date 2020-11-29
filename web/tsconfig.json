@@ -31,6 +31,12 @@
       ],
       "@services/*": [
         "src/app/core/services/*"
+      ],
+      "@app/shared/*":[
+        "src/app/shared/*"
+      ],
+      "@app/pipes": [
+        "src/app/pipe.module.ts"
       ]
     }
   },

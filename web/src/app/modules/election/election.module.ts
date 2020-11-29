@@ -7,6 +7,7 @@ import { ElectionRoutingModule } from './election-routing.module';
 import { ElectionLayoutComponent } from './election-layout.component';
 import { ListComponent } from './list/list.component';
 import { MaterialModule } from '@app/material-modules';
+import { PipeModule } from '@app/pipes';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { MaterialModule } from '@app/material-modules';
     ReactiveFormsModule,
     ElectionRoutingModule,
     MaterialModule,
+    PipeModule,
   ],
   declarations: [
     ElectionLayoutComponent,

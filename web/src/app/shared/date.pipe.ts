@@ -1,15 +1,13 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 
 @Pipe({
-  name: 'momentPipe',
+  name: 'dateFormat',
   pure: false
 })
+@Injectable()
 export class MomentPipe implements PipeTransform {
-
-  constructor() { }
-
-  transform(value: string, dateFormat: string): any {
+  transform(value: string | moment.Moment, dateFormat: string): any {
         return moment(value).format(dateFormat);
     }
 }

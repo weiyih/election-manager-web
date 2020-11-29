@@ -11,7 +11,6 @@ import { AuthGuard } from './core/auth/auth-guard.services';
 import { AuthService } from './core/auth/authentication.service';
 import { LoginComponent } from './modules/login/login.component';
 
-import { MomentPipe } from './shared/date.pipe';
 
 @NgModule({
   imports: [
@@ -25,7 +24,6 @@ import { MomentPipe } from './shared/date.pipe';
   declarations: [
     AppComponent,
     LoginComponent,
-    MomentPipe,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],

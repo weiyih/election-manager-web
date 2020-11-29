@@ -12,6 +12,7 @@ import { MaterialModule } from '../app/material-modules';
 import { AuthGuard } from './core/auth/auth-guard.services';
 import { AuthService } from './core/auth/authentication.service';
 import { LoginComponent } from './modules/login/login.component';
+import { ListComponent } from './modules/election/list/list.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { LoginComponent } from './modules/login/login.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    ListComponent,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],

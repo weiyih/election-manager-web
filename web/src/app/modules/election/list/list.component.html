@@ -1,0 +1,60 @@
+<table mat-table [dataSource]="electionDataSource" class="mat-elevation-z8">
+
+
+    electionId: string;
+    electionName: string;
+    startDate: string;
+    endDate: string;
+    advancedPoll: boolean;
+    advStartDate: string;
+    advEndDate: string;
+    locked: boolean;
+    status: string;
+    channelName: string;
+    contractName: string;
+    candidates: Candidate[];
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="electionName">
+      <th mat-header-cell *matHeaderCellDef> Election </th>
+      <td mat-cell *matCellDef="let election"> {{election.electionName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Start Date </th>
+      <td mat-cell *matCellDef="let election"> {{election.startDate}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> End Date </th>
+      <td mat-cell *matCellDef="let election"> {{election.endDate}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Adv Poll">
+      <th mat-header-cell *matHeaderCellDef> Adv. Poll </th>
+      <td mat-cell *matCellDef="let election"> {{election.advancedPoll}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Adv Poll Dates">
+        <th mat-header-cell *matHeaderCellDef> Adv. Poll </th>
+        <td mat-cell *matCellDef="let election"> {{election.advancedPoll}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="Locked">
+        <th mat-header-cell *matHeaderCellDef> Locked </th>
+        <td mat-cell *matCellDef="let election"> {{election.locked}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>   
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

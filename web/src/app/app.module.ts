@@ -4,15 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ElectionComponent } from './modules/election/election.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material-modules';
 import { AuthGuard } from './core/auth/auth-guard.services';
 import { AuthService } from './core/auth/authentication.service';
 import { LoginComponent } from './modules/login/login.component';
-import { ListComponent } from './modules/election/list/list.component';
 
 
 @NgModule({
@@ -27,7 +24,6 @@ import { ListComponent } from './modules/election/list/list.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    ListComponent,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],

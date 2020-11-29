@@ -2,7 +2,6 @@ import { Component, Injectable, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Route Components
-import { ElectionComponent } from './modules/election/election.component';
 import { AuthGuard } from './core/auth/auth-guard.services';
 import { LoginComponent } from './modules/login/login.component';
 

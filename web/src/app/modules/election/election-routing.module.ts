@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ElectionLayoutComponent } from './election-layout.component';
 import { ListComponent } from './list/list.component';
-// import { AddEditComponent } from './add-edit.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
     {
@@ -11,7 +11,7 @@ const routes: Routes = [
         children: [
             { path: '', component: ListComponent },
             // { path: 'add', component: AddEditComponent },
-            // { path: 'edit/:id', component: AddEditComponent }
+            { path: '/edit', component: EditComponent }
         ]
     }
 ];

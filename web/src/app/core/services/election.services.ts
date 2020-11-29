@@ -28,7 +28,7 @@ export class ElectionService {
 
     // ONLY returns a single array of elections
     getElections(): Observable<Election[]> {
-        return this.http.get<Election[]>(`${environment.apiUrl}/election`)
+        return this.http.get<Election[]>(`${environment.apiUrl}/v1/election`)
             .pipe(
                 catchError(this.handleError('getElections', []))
             );

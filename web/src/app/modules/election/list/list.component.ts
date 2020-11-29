@@ -31,7 +31,7 @@ export class ListComponent implements AfterViewInit {
   // Retrieves elections from DB and sets the datasource
   private setDataSource(): void {
     console.log('LOADING...');
-    this.electionServices.getElections().subscribe((election) => {
+    this.electionServices.getAllElections().subscribe((election) => {
       console.log(election);
       this.electionDataSource = election;
     });

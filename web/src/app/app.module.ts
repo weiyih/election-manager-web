@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './modules/main/main.component';
+import { ElectionComponent } from './modules/election/election.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +25,7 @@ import { LoginComponent } from './modules/login/login.component';
   ],
   declarations: [
     AppComponent,
-    MainComponent,
+    ElectionComponent,
     LoginComponent,
   ],
   providers: [AuthGuard, AuthService],

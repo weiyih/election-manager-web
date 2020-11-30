@@ -32,7 +32,6 @@ export class ListComponent implements AfterViewInit {
   private setDataSource(): void {
     console.log('LOADING...');
     this.electionServices.getAllElections().subscribe((election) => {
-      console.log(election);
       this.electionDataSource = election;
     });
   }

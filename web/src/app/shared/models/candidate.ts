@@ -1,7 +1,4 @@
 export class Candidate {
-    electionId: string;
-    ward: string;
-    candidateId: string;
-    firstName: string;
-    lastName: string;
+    candidate_id: string;
+    candidate_name: string;
 }

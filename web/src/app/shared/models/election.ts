@@ -4,7 +4,7 @@ export class Election {
     election_name: string;
     election_start_date: string;
     election_end_date: string;
-    advanced_polling: number;
+    advanced_polling: boolean;
     advanced_start_date: string;
     advanced_end_date: string;
     channel_name: string;

@@ -1,3 +1,11 @@
+<mat-toolbar>
+  <button mat-icon-button disabled>
+    <mat-icon>list</mat-icon>
+  </button>
+  <span>Election List</span>
+</mat-toolbar>
+
+<mat-divider></mat-divider>
 <table mat-table [dataSource]="electionDataSource" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="election_name">

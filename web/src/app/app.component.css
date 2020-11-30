@@ -1,23 +1,38 @@
-.root-app {
+.main-app {
   height: 100%;
   display: block;
 }
 
-.app-container {
+.nav-container {
   position: absolute;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
 }
+
 .side-nav {
-  align-items: center;
-  justify-content: right;
   width: 250px;
+  display: block;
+  align-items: center;
+  justify-content:center;
 }
 
+.side-nav-header {
+  text-align: center;
+}
+
+.side-nav-header img {
+  max-width: 200px;
+  height: auto;
+  padding: 20px 20px 0px 20px;
+}
+
+
+
 .side-nav-bottom {
+  max-width: 250px;
   position: absolute;
   top: auto;
-  bottom: 0px;
+  bottom: 10px;
 }

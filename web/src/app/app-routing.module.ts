@@ -9,12 +9,14 @@ import { LoginComponent } from './modules/login/login.component';
 const electionModule = () => import('./modules/election/election.module').then(x => x.ElectionModule);
 
 const routes: Routes = [
-  { path: 'elections', loadChildren: electionModule, canActivate: [AuthGuard] },
+  { path: 'election', loadChildren: electionModule, canActivate: [AuthGuard] },
+  // { path: 'voters', loadChildren: electionModule, canActivate: [AuthGuard] },
+  // { path: 'result', loadChildren: electionModule, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 
   // Redirect to home
-  { path: '', redirectTo: '/elections', pathMatch: 'full' },
-  { path: '**', redirectTo: 'elections' },
+  { path: '', redirectTo: '/election', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

@@ -5,9 +5,11 @@ import { CommonModule } from '@angular/common';
 import { ElectionService } from '@services/election.services'
 import { ElectionRoutingModule } from './election-routing.module';
 import { ElectionLayoutComponent } from './election-layout.component';
-import { ListComponent } from './list/list.component';
-import { MaterialModule } from '@app/material-modules';
+import { MaterialModule } from 'src/app/material.modules';
 import { PipeModule } from '@app/pipes';
+
+import { ListComponent } from './list/list.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { PipeModule } from '@app/pipes';
   declarations: [
     ElectionLayoutComponent,
     ListComponent,
+    EditComponent,
     // AddComponent
     // ViewComponent
     ],

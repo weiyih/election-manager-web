@@ -9,9 +9,9 @@ const routes: Routes = [
     {
         path: '', component: ElectionLayoutComponent,
         children: [
+            { path: ':id', component: EditComponent },
             { path: '', component: ListComponent },
-            // { path: 'add', component: AddEditComponent },
-            { path: '/edit', component: EditComponent }
+
         ]
     }
 ];

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -17,20 +17,33 @@ export class ElectionService {
     // this.election = this.electionSubject.asObservable();
   }
 
-  // Create new election
+  // Save new election to Election DB
   create(election: Election) {
-    return this.http.post(`${environment.apiUrl}/v1/create`, election);
+    return this.http
+      .post(`${environment.apiUrl}/v1/create`, election)
+      .pipe(catchError(this.handleError('createElection', null)));
   }
 
-  // ONLY returns a single array of elections
+  // Deploys election on the blockchain network
+  // Alerts node server to create new channel and deploy smart contract based on election_id details
+  deploy(electionId) {
+    return this.http
+      .post(`${environment.apiUrl}/v1/deploy`, electionId)
+      .pipe(catchError(this.handleError('deploy', null)));
+  }
+
+  // Retrieve all elections
   getAllElections(): Observable<Election[]> {
-    return this.http.get<Election[]>(`${environment.apiUrl}/v1/election/`)
+    return this.http
+      .get<Election[]>(`${environment.apiUrl}/v1/election/`)
       .pipe(catchError(this.handleError('getAllElections', [])));
   }
 
-  getElection(electionId): Observable<Election> {
-    return this.http.get<Election>(`${environment.apiUrl}/v1/election/${electionId}`)
-      .pipe(catchError(this.handleError('getElection', null)));
+  // Retrieve election by id
+  getElection(electionId: string): Observable<Election[]> {
+    return this.http
+      .get<Election[]>(`${environment.apiUrl}/v1/election/${electionId}`)
+      .pipe(catchError(this.handleError('getElection', [])));
   }
 
   // update(id, params) {
@@ -49,6 +62,7 @@ export class ElectionService {
   //         }));
   // }
 
+  // Update locked flag to 2 to indicate deleted
   // delete(id: string) {
   //     return this.http.delete(`${environment.apiUrl}/users/${id}`)
   //         .pipe(map(x => {
@@ -60,9 +74,9 @@ export class ElectionService {
   //         }));
   // }
 
+  // TODO - alert errors to display on election pages
   private handleError<T>(operation: string = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
       console.log(`${operation} failed: ${error.message}`);
       // Let the app keep running by returning an empty result.
 

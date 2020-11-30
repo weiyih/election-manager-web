@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   // Convenience getter to access form fields
-  // tslint:disable-next-line: typedef
   get form() {
     return this.loginForm.controls;
   }

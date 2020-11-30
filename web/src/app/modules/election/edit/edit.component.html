@@ -1,43 +1,24 @@
 
+  <h2> ELECTION 2</h2>
   <form [formGroup]="electionForm" (ngSubmit)="onSubmit()" class="election-form">
     <mat-form-field class="form-full-width">
       <mat-label>Company (disabled)</mat-label>
-      <input matInput disabled value={{election.election_name}}>
+      <input matInput disabled value={{ election.election_name }}>
     </mat-form-field>
 
+    <!-- Disabled manual input for date  picker -->
     <mat-form-field color="accent" appearance="fill">
       <mat-label>Election Start Date</mat-label>
       <input matInput [matDatepicker]="pickerStartDate" disabled>
       <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
       <mat-datepicker #pickerStartDate></mat-datepicker>
     </mat-form-field>
-    
+    <!-- Disabled manual input ~for date  picker -->
     <mat-form-field color="accent" appearance="fill">
       <mat-label>Election Start Date</mat-label>
-      <input matInput  [matDatepickerFilter]="endDateFilter" [matDatepicker]="pickerEndDate" disabled>
+      <input matInput [min]="minEndDate" [matDatepicker]="pickerEndDate" disabled>
       <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
       <mat-datepicker #pickerEndDate></mat-datepicker>
     </mat-form-field>
-  
   </form>
-
-  <!-- // Note: Casing matches mongoDB case in ElectionDB
-  export class Election {
-      election_id: string;
-      election_name: string;
-      election_start_date: string;
-      election_end_date: string;
-      advanced_polling: number;
-      advanced_start_date: string;
-      advanced_end_date: string;
-      channel_name: string;
-      contract_name: string;
-      created_at: string;
-      updated_at: string;
-      locked: boolean; // 0 - unlocked(editable), 1 - locked(not running/in progress/completed)
-      progress: number; // 0 - not running, 1 - in progress, 2 - completed
-      disabled: boolean; // 0 - deleted election, 1 - valid election
-  }
-  
-   -->
   

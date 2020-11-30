@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { ElectionService } from '@services/election.services'
+import { ElectionService } from '@services/election.services';
+import { BallotService } from '@services/candidate.services';
 import { ElectionRoutingModule } from './election-routing.module';
 import { ElectionLayoutComponent } from './election-layout.component';
 import { MaterialModule } from 'src/app/material.modules';
@@ -14,6 +15,7 @@ import { EditComponent } from './edit/edit.component';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     ElectionRoutingModule,
     MaterialModule,
@@ -27,7 +29,7 @@ import { EditComponent } from './edit/edit.component';
     // ViewComponent
     ],
   providers: [
-    ElectionService,
+    ElectionService, BallotService
   ]
 })
 export class ElectionModule {}

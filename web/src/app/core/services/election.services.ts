@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '@environments';
 import { Election } from '@app/model/election';
@@ -40,10 +40,10 @@ export class ElectionService {
   }
 
   // Retrieve election by id
-  getElection(electionId: string): Observable<Election[]> {
+  getElection(electionId: string): Observable<Election> {
     return this.http
-      .get<Election[]>(`${environment.apiUrl}/v1/election/${electionId}`)
-      .pipe(catchError(this.handleError('getElection', [])));
+      .get<Election>(`${environment.apiUrl}/v1/election/${electionId}`)
+      .pipe(catchError(this.handleError('getElection', null)));
   }
 
   // update(id, params) {

@@ -18,7 +18,7 @@
     ],
     "paths": {
       "@app/material-modules": [
-        "src/app/material-modules.ts"
+        "src/app/material.modules.ts"
       ],
       "@core/auth/*": [
         "src/app/core/auth/*"

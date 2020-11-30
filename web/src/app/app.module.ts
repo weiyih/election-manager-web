@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../app/material-modules';
+import { MaterialModule } from './material.modules';
 import { AuthGuard } from './core/auth/auth-guard.services';
 import { AuthService } from './core/auth/authentication.service';
 import { LoginComponent } from './modules/login/login.component';

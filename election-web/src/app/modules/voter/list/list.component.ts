@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
@@ -29,9 +29,19 @@ export class VoterListComponent implements AfterViewInit {
 
 
   }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.setDataSource();
   }
+
+  // Retrieves elections from DB and sets the datasource
+  private setDataSource(): void {
+    console.log('LOADING...');
+    // this.electionServices.getAllElections().subscribe((election) => {
+    //   this.electionDataSource = election;
+    // });
+  }
+
+
 
   getVoteStatus() {
 

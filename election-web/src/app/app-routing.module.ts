@@ -8,7 +8,7 @@ import { LoginComponent } from './modules/login/login.component';
 // Lazy load routes
 
 const electionModule = () => import('./modules/election/election.module').then(x => x.ElectionModule);
-const voterModule = () => import('./modules/election/voter.module').then(x => x.VoterModule);
+const voterModule = () => import('./modules/voter/voter.module').then(x => x.VoterModule);
 
 const routes: Routes = [
   { path: 'election', loadChildren: electionModule, canActivate: [AuthGuard] },

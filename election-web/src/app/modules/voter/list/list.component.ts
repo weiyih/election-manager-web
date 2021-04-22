@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Voter } from '@app/model/voter';
 
 
 @Component({
@@ -25,6 +26,8 @@ export class VoterListComponent implements AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   
+  voterDataSource: Voter[] = [];
+
   constructor() { 
 
 

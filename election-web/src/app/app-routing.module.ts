@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth/auth-guard.services';
 import { LoginComponent } from './modules/login/login.component';
 
-// Lazy load elections
+// Lazy load routes
+
 const electionModule = () => import('./modules/election/election.module').then(x => x.ElectionModule);
+const voterModule = () => import('./modules/election/voter.module').then(x => x.VoterModule);
 
 const routes: Routes = [
   { path: 'election', loadChildren: electionModule, canActivate: [AuthGuard] },
-  // { path: 'voters', loadChildren: electionModule, canActivate: [AuthGuard] },
+  { path: 'voters', loadChildren: voterModule, canActivate: [AuthGuard] },
   // { path: 'result', loadChildren: electionModule, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 

@@ -11,6 +11,7 @@ import { PipeModule } from '@app/pipes';
 
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { EditComponent } from './edit/edit.component';
     ElectionLayoutComponent,
     ListComponent,
     EditComponent,
+    ResultComponent,
     // AddComponent
     // ViewComponent
     ],

@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <button mat-icon-button disabled>
+    <mat-icon>list</mat-icon>
+  </button>
+  <span>Election Results</span>
+</mat-toolbar>
+
+<mat-divider></mat-divider>
+
+<table mat-table [dataSource]="voteDataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef> Timestamp. </th>
+    <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> HashID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="district_id">
+    <th mat-header-cell *matHeaderCellDef> District </th>
+    <td mat-cell *matCellDef="let element"> {{element.district_id}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="candidate_id">
+    <th mat-header-cell *matHeaderCellDef> Candidate </th>
+    <td mat-cell *matCellDef="let element"> {{element.candidate_id}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

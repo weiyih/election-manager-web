@@ -144,13 +144,13 @@ export class EditComponent implements OnInit {
   // Ensures the most up to date information
   private loadElection(electionId: string): void {
     console.log('Getting Election');
-    this.electionServices.getElection(electionId).subscribe((election) => {
-      this.election = election;
-      console.log(election);
+    // this.electionServices.getElection(electionId).subscribe((election) => {
+    //   this.election = election;
+    //   console.log(election);
 
-      // Update the form from retrieved election;
-      this.electionForm.patchValue(election);
-    });
+    //   // Update the form from retrieved election;
+    //   this.electionForm.patchValue(election);
+    // });
   }
 
   // backClicked() {

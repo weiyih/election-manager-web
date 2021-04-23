@@ -5,12 +5,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '@environments';
 import { Election } from '@app/model/election';
+import { Vote } from '@app/model/vote';
 
 @Injectable()
 export class ElectionService {
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  // };
 
   constructor(private http: HttpClient) {
     // this.electionSubject = new BehaviorSubject<Election[]>(this.getElections());
@@ -35,16 +36,28 @@ export class ElectionService {
   // Retrieve all elections
   getAllElections(): Observable<Election[]> {
     return this.http
-      .get<Election[]>(`${environment.apiUrl}/v1/election/`)
+      .post<Election[]>(`${environment.apiUrl}/v1/admin/election`, null)
       .pipe(catchError(this.handleError('getAllElections', [])));
   }
 
-  // Retrieve election by id
-  getElection(electionId: string): Observable<Election> {
+  // // Retrieve election by id
+  // getElection(electionId: string): Observable<Election> {
+  //   return this.http
+  //     .get<Election>(`${environment.apiUrl}/v1/admin/election/${electionId}`)
+  //     .pipe(catchError(this.handleError('getElection', null)));
+  // }
+
+  queryAllVotes(electionId): Observable<Vote[]> {
     return this.http
-      .get<Election>(`${environment.apiUrl}/v1/election/${electionId}`)
-      .pipe(catchError(this.handleError('getElection', null)));
+      .post<Vote[]>(`${environment.apiUrl}/v1/admin/query/${electionId}`, null)
+      .pipe(catchError(this.handleError('queryAllVotes', electionId)))
   }
+
+
+  // getBallots(electionId: string): Observable<Ballot[]> {
+  //   return this.http
+  //     .post<
+  // }
 
   // update(id, params) {
   //     return this.http.put(`${environment.apiUrl}/election/${id}`, params)

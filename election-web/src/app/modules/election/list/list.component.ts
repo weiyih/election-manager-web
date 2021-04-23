@@ -10,13 +10,14 @@ import { ElectionService } from '@services/election.services';
 })
 export class ListComponent implements AfterViewInit {
   displayedColumns: string[] = [
+    'view',
     'election_name',
     'election_start_date',
     'election_end_date',
     'advanced_polling',
     'locked',
     'progress',
-    'view',
+    'result',
   ];
 
   electionDataSource: Election[] = [];
@@ -38,12 +39,12 @@ export class ListComponent implements AfterViewInit {
 
   // Displays whether Advanced Polling is enabled or not
   // disabled: boolean; // 0 - deleted election, 1 - valid election
-  getAdvPoll(data: number): string {
+  getAdvPoll(data: boolean): string {
     switch (data) {
-      case 0: {
+      case true: {
         return 'Yes';
       }
-      case 1: {
+      case false: {
         return 'No';
       }
     }

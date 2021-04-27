@@ -21,14 +21,14 @@ export class VoterService {
   // Retrieve all elections
   getVoters(): Observable<Voter[]> {
     return this.http
-      .get<Voter[]>(`${environment.apiUrl}/v1/admin/voters`)
+      .post<Voter[]>(`${environment.apiUrl}/v1/admin/voters`, null)
       .pipe(catchError(this.handleError('getVoters', [])));
   }
 
 
   getUsers(): Observable<User[]> {
     return this.http
-      .get<User[]>(`${environment.apiUrl}/v1/admin/users`)
+      .post<User[]>(`${environment.apiUrl}/v1/admin/users`, null)
       .pipe(catchError(this.handleError('getVoters', [])));
   }
 

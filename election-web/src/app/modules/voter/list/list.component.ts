@@ -2,60 +2,50 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Voter } from '@app/model/voter';
+import { VoterService } from '@services/voters.services';
 
 
 @Component({
   selector: 'app-voter',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
+  providers: [VoterService],
 })
 
 export class VoterListComponent implements AfterViewInit {
   // TODO - Observable Stream instead of DataSource
   displayedColumns: string[] = [
-    'first_name',
-    'middle_name',
-    'last_name',
+    'name',
     'date_birth',
-    'verified',
-    'vote_status',
+    'verify_pin',
+    'verify_status',
     'vote_online',
+
+
   ];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  
   voterDataSource: Voter[] = [];
 
-  constructor() { 
-
+  constructor(private voterServices: VoterService) {
 
   }
+
   ngAfterViewInit(): void {
     this.setDataSource();
   }
 
   // Retrieves elections from DB and sets the datasource
   private setDataSource(): void {
-    console.log('LOADING...');
-    // this.electionServices.getAllElections().subscribe((election) => {
-    //   this.electionDataSource = election;
-    // });
+    this.voterServices.getVoters().subscribe((voter) => {
+      this.voterDataSource = voter;
+    });
   }
 
-
-
-  getVoteStatus() {
-
+  getVoterName(voter: Voter) {
+    return `${voter.first_name} ${voter.middle_name} ${voter.last_name}`
   }
 
   getVoteOnlineStatus() {
 
   }
-
-  getAdvPoll() {
-
-  }
-
 }

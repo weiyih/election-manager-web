@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '@environments';
 import { Voter } from '@app/model/voter';
+import { User } from '@app/model/user';
 
 @Injectable()
 export class VoterService {
@@ -20,7 +21,14 @@ export class VoterService {
   // Retrieve all elections
   getVoters(): Observable<Voter[]> {
     return this.http
-      .get<Voter[]>(`${environment.apiUrl}/v1/voters/`)
+      .get<Voter[]>(`${environment.apiUrl}/v1/admin/voters`)
+      .pipe(catchError(this.handleError('getVoters', [])));
+  }
+
+
+  getUsers(): Observable<User[]> {
+    return this.http
+      .get<User[]>(`${environment.apiUrl}/v1/admin/users`)
       .pipe(catchError(this.handleError('getVoters', [])));
   }
 

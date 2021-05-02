@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '@environments';
 import { Election } from '@app/model/election';
 import { Vote } from '@app/model/vote';
+import { Ballot } from '@app/model/ballot';
 
 @Injectable()
 export class ElectionService {
@@ -51,6 +52,12 @@ export class ElectionService {
     return this.http
       .post<Vote[]>(`${environment.apiUrl}/v1/admin/query/${electionId}`, null)
       .pipe(catchError(this.handleError('queryAllVotes', electionId)))
+  }
+
+  queryAllCandidates(electionId): Observable<Ballot> {
+    return this.http
+      .post<Vote[]>(`${environment.apiUrl}/v1/admin/election/${electionId}`, null)
+      .pipe(catchError(this.handleError('queryAllCandidates', electionId)))
   }
 
 

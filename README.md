@@ -3,3 +3,7 @@
 This is the election management portal component of the Blockchain Voting Project.
 
 The web portal is written in Angular TypeScript and was designed to adminstrate and view the operating elections that is stored on the mongoDB databases.
+
+TODO:
+* CRUD Operations to administrate elections
+* Business logic for creating blockchain channels and chaincode for elections
